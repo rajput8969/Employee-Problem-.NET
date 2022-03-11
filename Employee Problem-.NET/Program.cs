@@ -1,4 +1,4 @@
-﻿       //Check Employee is Present or Absent//
+﻿       //Calculate Daily Employee Wage//
 using System;
 
 namespace Employee_Problem_.NET
