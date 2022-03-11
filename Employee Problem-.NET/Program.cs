@@ -1,4 +1,4 @@
-﻿       //Calculate Daily Employee Wage//
+﻿       //Adding Part Time Employee And Wages//
 using System;
 
 namespace Employee_Problem_.NET
@@ -7,7 +7,8 @@ namespace Employee_Problem_.NET
     {
         static void Main(string[] args)
         {
-            int IS_Full_Time = 1;
+            int IS_Part_Time = 1;
+            int IS_Full_Time = 2;
             int Emp_Rate_Per_hour = 20;
 
             int empHrs = 0;
@@ -15,8 +16,12 @@ namespace Employee_Problem_.NET
 
             Random random = new Random();
 
-            int empCheck = random.Next(0, 2);
-            if (empCheck == IS_Full_Time)
+            int empCheck = random.Next(0, 3);
+            if (empCheck == IS_Part_Time)
+            {
+                empHrs = 4;
+            }
+            else if (empCheck == IS_Full_Time)
             {
                 empHrs = 8;
             }
