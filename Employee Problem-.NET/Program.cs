@@ -1,20 +1,45 @@
-﻿using System;
+using System;
 
-namespace Employee_Problem_.NET
+namespace UC_7
 {
-    internal class Program
+    class Program
     {
-        static void Main(string[] args)
+        public const int IS_Part_Time = 1;
+        public const int IS_Full_Time = 2;
+        public const int Emp_Rate_Per_hour = 20;
+        public const int Num_Of_Working_Days = 2;
+        public const int Max_Hrs_In_Months = 10;
+        public static int computeEmpWage()
         {
-            Console.WriteLine("Welcome To Employee !");
-            Console.WriteLine("******************************************");
-            Console.WriteLine("    ************************      ");
-            Console.WriteLine("UC-1:-Check Employee is Present or Absent");
-            Console.WriteLine("UC-2:-Calculate daily Employee Wage");
-            Console.WriteLine("UC-3:-Adding Part time Employee and Wage");
-            Console.WriteLine("UC-4:-Solving Usng Switch case Statement");
-            Console.WriteLine("UC-5:-Calculate Wages for a Month");
-            Console.WriteLine("UC-6:-Calculate Wages till a sondition of total working Hours or days is reached for a month");
+            int empHrs = 0, totalWorkingDays = 0, totalEmpHrs = 0;
+            while (totalEmpHrs <= Max_Hrs_In_Months && totalWorkingDays < Num_Of_Working_Days)
+            {
+                totalWorkingDays++;
+                Random random = new Random();
+                int empCheck = random.Next(0, 3);
+                switch (empCheck)
+                {
+                    case IS_Part_Time:
+                        empHrs = 4;
+                        break;
+                    case IS_Full_Time:
+                        empHrs = 8;
+                        break;
+                    default:
+                        empHrs = 0;
+                        break;
+                }
+                totalEmpHrs += empHrs;
+                Console.WriteLine("Days#:-" + totalWorkingDays + " Emp Hrs :-" + empHrs);
+            }
+            int totalEmpWage = totalEmpHrs * Emp_Rate_Per_hour;
+            Console.WriteLine("Total Emp Wage :- " + totalEmpWage);
+            return totalEmpWage;
         }
     }
+    static void Main(string[] args)
+    {
+        computeEmpWage();
+    }
+    
 }
